@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>CreatorDesk · 创作工作台</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script type="module" src="/app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="工作区侧栏">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">C</div>
+          <div>
+            <strong>CreatorDesk</strong>
+            <span>创作者工作台</span>
+          </div>
+        </div>
+
+        <div class="sidebar-heading">
+          <span>我的任务</span>
+          <span id="task-count" class="count-pill" aria-label="任务数量">0</span>
+        </div>
+        <div id="task-list" class="task-list" aria-label="任务列表"></div>
+
+        <details class="new-task-panel">
+          <summary><span aria-hidden="true">＋</span> 新建创作任务</summary>
+          <form id="task-form" class="stack-form">
+            <label for="new-task-title">任务标题</label>
+            <input id="new-task-title" name="title" maxlength="160" required placeholder="例如：解释向量数据库的索引策略">
+            <label for="new-task-brief">创作目标与要求</label>
+            <textarea id="new-task-brief" name="brief" rows="4" maxlength="6000" required placeholder="写下读者、目标和希望覆盖的要点"></textarea>
+            <button class="button button-primary button-full" type="submit">创建任务</button>
+          </form>
+        </details>
+
+        <section class="token-panel" aria-labelledby="token-heading">
+          <div class="token-title-row">
+            <h2 id="token-heading">API 访问</h2>
+            <span id="token-status" class="token-status">未载入</span>
+          </div>
+          <p>令牌只保存在当前页面内存中，请勿粘贴到任务内容。</p>
+          <label for="token-input">Bearer 令牌</label>
+          <input id="token-input" type="password" autocomplete="new-password" autocapitalize="off" spellcheck="false" placeholder="输入后点击载入">
+          <div class="token-actions">
+            <button id="token-load" class="button button-small" type="button">载入令牌</button>
+            <button id="token-clear" class="button button-small button-quiet" type="button">清除</button>
+          </div>
+        </section>
+        <div class="sidebar-footnote">人工审核与发布授权由你决定。</div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">创作流程</p>
+            <h1>内容工作台</h1>
+          </div>
+          <div class="topbar-right">
+            <span class="privacy-chip"><span class="status-dot" aria-hidden="true"></span>私有工作区</span>
+            <span id="api-status" class="api-status" role="status">正在连接</span>
+          </div>
+        </header>
+
+        <section class="search-panel" aria-label="工作区检索">
+          <form id="search-form" class="search-form" role="search">
+            <label for="search-query">检索任务、草稿与来源</label>
+            <div class="search-controls">
+              <input id="search-query" type="search" maxlength="200" placeholder="输入关键词后检索" autocomplete="off">
+              <button id="search-submit" class="button button-quiet" type="submit" disabled>检索</button>
+            </div>
+          </form>
+          <div id="search-results" class="search-results" aria-live="polite"></div>
+        </section>
+
+        <div id="alert" class="alert" role="alert" hidden></div>
+        <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+
+        <section id="empty-state" class="empty-state" hidden>
+          <div class="empty-icon" aria-hidden="true">✦</div>
+          <p class="eyebrow">从一个想法开始</p>
+          <h2>这里还没有创作任务</h2>
+          <p>先创建任务，再记录资料、整理草稿并交由人工审核。</p>
+          <button id="empty-create" class="button button-primary" type="button">新建创作任务</button>
+        </section>
+
+        <section id="workspace" class="workspace" hidden aria-label="任务工作区">
+          <div class="workspace-heading">
+            <div class="task-heading-copy">
+              <p class="eyebrow">当前任务</p>
+              <h2 id="task-name">—</h2>
+              <p id="task-brief" class="task-brief"></p>
+            </div>
+            <div class="task-heading-meta">
+              <span id="task-stats" class="meta-chip">—</span>
+              <span id="current-version-chip" class="meta-chip">暂无草稿</span>
+            </div>
+          </div>
+
+          <div class="work-grid">
+            <div class="main-column">
+              <section class="card editor-card" aria-labelledby="editor-heading">
+                <div class="section-heading">
+                  <div>
+                    <p class="eyebrow">草稿编辑</p>
+                    <h2 id="editor-heading">工作稿</h2>
+                  </div>
+                  <span id="draft-dirty" class="dirty-indicator">已保存版本</span>
+                </div>
+                <label class="visually-hidden" for="draft-body">草稿正文</label>
+                <textarea id="draft-body" class="draft-editor" rows="17" maxlength="12000" placeholder="生成或粘贴草稿后，在这里编辑。保存会创建一个新版本。"></textarea>
+                <div class="editor-footer">
+                  <p>保存会生成新版本，旧版本和对应审核记录会保留。</p>
+                  <button id="save-version" class="button button-primary" type="button" disabled>保存为新版本</button>
+                </div>
+                <fieldset class="source-picker">
+                  <legend>本版本引用的来源</legend>
+                  <p class="field-hint">勾选实际用于这版草稿的来源。记录来源不代表内容已经核验。</p>
+                  <div id="draft-source-options" class="source-options"></div>
+                </fieldset>
+              </section>
+
+              <section class="card history-card" aria-labelledby="history-heading">
+                <div class="section-heading">
+                  <div>
+                    <p class="eyebrow">草稿历史</p>
+                    <h2 id="history-heading">版本与审核</h2>
+                  </div>
+                  <span id="version-count" class="count-pill">0 版</span>
+                </div>
+                <div class="history-layout">
+                  <ol id="version-list" class="version-list" aria-label="草稿版本列表"></ol>
+                  <div class="version-inspector">
+                    <div class="inspector-heading">
+                      <strong id="inspected-version-label">选择一个版本查看</strong>
+                      <button id="copy-version" class="button button-small button-quiet" type="button" disabled>载入到编辑器</button>
+                    </div>
+                    <pre id="inspected-version-body" class="version-body">保存草稿后，版本内容会显示在这里。</pre>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+            <div class="side-column">
+              <section class="card sources-card" aria-labelledby="sources-heading">
+                <div class="section-heading">
+                  <div>
+                    <p class="eyebrow">资料与引用</p>
+                    <h2 id="sources-heading">来源摘录</h2>
+                  </div>
+                  <span id="source-count" class="count-pill">0</span>
+                </div>
+                <p class="field-hint source-disclaimer">粘贴你选定的摘录和链接。系统只保存你提供的内容，不自动抓取网页；“已记录”不等于“已核验”。</p>
+                <form id="source-form" class="stack-form source-form">
+                  <label for="source-title">来源标题</label>
+                  <input id="source-title" name="title" maxlength="240" required placeholder="文章、报告或页面名称">
+                  <label for="source-url">来源链接</label>
+                  <input id="source-url" name="url" type="url" maxlength="2048" required placeholder="https://…">
+                  <label for="source-excerpt">摘录</label>
+                  <textarea id="source-excerpt" name="excerpt" rows="4" maxlength="4000" required placeholder="粘贴需要在草稿中引用或核对的片段"></textarea>
+                  <button class="button button-secondary button-full" type="submit">记录来源</button>
+                </form>
+                <div id="source-list" class="source-list"></div>
+              </section>
+
+              <section class="card generation-card" aria-labelledby="generation-heading">
+                <div class="section-heading">
+                  <div>
+                    <p class="eyebrow">按需执行</p>
+                    <h2 id="generation-heading">草稿生成</h2>
+                  </div>
+                  <span class="manual-chip">手动启动</span>
+                </div>
+                  <p class="field-hint">准备 1–8 个来源即可开始生成，也可基于当前草稿继续生成。生成不会自动开始；提交后请点击同步查看最新状态。</p>
+                <button id="start-generation" class="button button-primary button-full" type="button" disabled>开始生成</button>
+                <div id="generation-list" class="generation-list"></div>
+              </section>
+
+              <section class="card review-card" aria-labelledby="review-heading">
+                <div class="section-heading">
+                  <div>
+                    <p class="eyebrow">人工把关</p>
+                    <h2 id="review-heading">审核与发布</h2>
+                  </div>
+                  <span id="review-state" class="review-state">未审核</span>
+                </div>
+                <p id="review-target" class="review-target">先在版本历史中选择一个已保存版本。</p>
+                <label for="review-note">审核备注</label>
+                <textarea id="review-note" rows="3" maxlength="2000" placeholder="记录通过理由、待修改内容或引用问题"></textarea>
+                <label class="source-check-confirm">
+                  <input id="source-check-confirmed" type="checkbox">
+                  <span>我已人工核对本版本引用的原始来源与引用内容；生成内容可能有误，模型不能替代人工审核。</span>
+                </label>
+                <div class="button-row">
+                  <button id="approve-version" class="button button-success" type="button" disabled>通过此版本</button>
+                  <button id="reject-version" class="button button-danger-outline" type="button" disabled>拒绝此版本</button>
+                </div>
+                <div id="review-history" class="review-history"></div>
+
+                <div class="publish-divider"></div>
+                <div class="publish-heading">
+                  <h3>发布前预览</h3>
+                  <span class="manual-chip">单独确认</span>
+                </div>
+                <p class="field-hint">只有已通过审核的版本才能准备发布。准备预览不会发布内容。</p>
+                <button id="preview-publication" class="button button-secondary button-full" type="button" disabled>准备发布预览</button>
+                <div id="publish-preview" class="publish-preview" hidden>
+                  <div class="preview-status-row">
+                    <strong>发布预览</strong>
+                    <span id="preview-status" class="review-state">待确认</span>
+                  </div>
+                  <dl id="preview-target" class="target-details"></dl>
+                  <div class="preview-hash">
+                    <span>内容摘要 SHA-256</span>
+                    <code id="preview-hash"></code>
+                  </div>
+                  <pre id="preview-body" class="preview-body"></pre>
+                  <label class="confirm-check">
+                    <input id="confirm-checkbox" type="checkbox">
+                    <span>我已核对上方账号与完整内容，并授权本次发布。</span>
+                  </label>
+                  <label for="confirm-phrase">输入“确认发布”后再提交</label>
+                  <input id="confirm-phrase" autocomplete="off" placeholder="确认发布">
+                  <button id="confirm-publication" class="button button-danger button-full" type="button" disabled>确认发布</button>
+                  <div id="publication-recovery" class="publication-recovery" hidden>
+                    <p id="publication-recovery-note" class="field-hint"></p>
+                    <div id="retry-confirmation" class="retry-confirmation" hidden>
+                      <label class="confirm-check">
+                        <input id="retry-checkbox" type="checkbox">
+                        <span>我已在目标平台检查是否已出现这条内容，并授权用原内容和原幂等键重试。</span>
+                      </label>
+                      <label for="retry-phrase">输入“重试原发布”</label>
+                      <input id="retry-phrase" autocomplete="off" placeholder="重试原发布">
+                    </div>
+                    <div class="button-row">
+                      <button id="reconcile-publication" class="button button-quiet" type="button">同步回执</button>
+                      <button id="retry-publication" class="button button-danger-outline" type="button" disabled>核对后重试原发布</button>
+                    </div>
+                  </div>
+                  <p class="field-hint">如果提交结果不确定，先同步回执；再次发送可能发布内容，请只在核对后重试。</p>
+                </div>
+                <div id="publication-list" class="publication-list"></div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "project": "CreatorDesk",
+  "prepared_on": "2026-10-31",
+  "files": [
+    {
+      "source": "project_CreatorDesk/github_public/.gitignore",
+      "path": ".gitignore",
+      "source_sha256": "e6d8cda5cab02a6c39a23ab54cf7dcde5acf38a2501473e2a462ca42a23f6030",
+      "sha256": "e6d8cda5cab02a6c39a23ab54cf7dcde5acf38a2501473e2a462ca42a23f6030",
+      "bytes": 104
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/pom.xml",
+      "path": "backend-java/pom.xml",
+      "source_sha256": "bb74c591317800c9533bcd259f1c5cc9b91b4f13037f71fa6c5efa07ef5efc2b",
+      "sha256": "bb74c591317800c9533bcd259f1c5cc9b91b4f13037f71fa6c5efa07ef5efc2b",
+      "bytes": 2502
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/api/BodyRules.java",
+      "path": "backend-java/src/main/java/org/creatordesk/api/BodyRules.java",
+      "source_sha256": "7ba703a700674368d671cc897f86475e9a4702067712c092e5c3209ad804399b",
+      "sha256": "7ba703a700674368d671cc897f86475e9a4702067712c092e5c3209ad804399b",
+      "bytes": 1718
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/api/CreatorDeskController.java",
+      "path": "backend-java/src/main/java/org/creatordesk/api/CreatorDeskController.java",
+      "source_sha256": "a9def899113a487c911b3088d383d3aac51c9881d665d70523c4ad297cc485d3",
+      "sha256": "a9def899113a487c911b3088d383d3aac51c9881d665d70523c4ad297cc485d3",
+      "bytes": 8748
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/api/HealthController.java",
+      "path": "backend-java/src/main/java/org/creatordesk/api/HealthController.java",
+      "source_sha256": "a62b94e5438f4f721f0e30d5cddccbba7001e7a8d456cab5aa89f8e3ab6246ab",
+      "sha256": "a62b94e5438f4f721f0e30d5cddccbba7001e7a8d456cab5aa89f8e3ab6246ab",
+      "bytes": 487
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/config/OwnerConfig.java",
+      "path": "backend-java/src/main/java/org/creatordesk/config/OwnerConfig.java",
+      "source_sha256": "c34808b4f1e68cb78bd0619c09e306cc825a1d275f534e156339a012ee76fad2",
+      "sha256": "c34808b4f1e68cb78bd0619c09e306cc825a1d275f534e156339a012ee76fad2",
+      "bytes": 1630
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/config/OwnerRegistry.java",
+      "path": "backend-java/src/main/java/org/creatordesk/config/OwnerRegistry.java",
+      "source_sha256": "a23c42e2b80561f04ad9b8599b9ec0caa778f03d85d8e22ef860ad45fce3ddba",
+      "sha256": "a23c42e2b80561f04ad9b8599b9ec0caa778f03d85d8e22ef860ad45fce3ddba",
+      "bytes": 6043
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/config/SecurityConfig.java",
+      "path": "backend-java/src/main/java/org/creatordesk/config/SecurityConfig.java",
+      "source_sha256": "228d4b8f98ac6f35604cf49b893e5a24f0612200848fce9d9020b31b4de7ce59",
+      "sha256": "228d4b8f98ac6f35604cf49b893e5a24f0612200848fce9d9020b31b4de7ce59",
+      "bytes": 8498
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/CreatorDeskApplication.java",
+      "path": "backend-java/src/main/java/org/creatordesk/CreatorDeskApplication.java",
+      "source_sha256": "f07c38cb1054ffc0676d4b437cd6c36ea1606b95ae1f04a8292d25c8644b1f3a",
+      "sha256": "f07c38cb1054ffc0676d4b437cd6c36ea1606b95ae1f04a8292d25c8644b1f3a",
+      "bytes": 481
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/error/ApiExceptionHandler.java",
+      "path": "backend-java/src/main/java/org/creatordesk/error/ApiExceptionHandler.java",
+      "source_sha256": "da34b00dc136c6f884a293d0601f26cede5fd47fd5d768e2f1a5d6ea72d0e0e9",
+      "sha256": "da34b00dc136c6f884a293d0601f26cede5fd47fd5d768e2f1a5d6ea72d0e0e9",
+      "bytes": 2330
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/error/DeskException.java",
+      "path": "backend-java/src/main/java/org/creatordesk/error/DeskException.java",
+      "source_sha256": "8f55e23eba966326eab6c31acc66c491a085f87c311ee5158ea2ef2ad124df2f",
+      "sha256": "8f55e23eba966326eab6c31acc66c491a085f87c311ee5158ea2ef2ad124df2f",
+      "bytes": 489
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/peer/PeerClients.java",
+      "path": "backend-java/src/main/java/org/creatordesk/peer/PeerClients.java",
+      "source_sha256": "711ca768c33332280cc006351b4e01ef710970700ff71ff9e1494e7aa2246f17",
+      "sha256": "711ca768c33332280cc006351b4e01ef710970700ff71ff9e1494e7aa2246f17",
+      "bytes": 5934
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/peer/PeerDirectory.java",
+      "path": "backend-java/src/main/java/org/creatordesk/peer/PeerDirectory.java",
+      "source_sha256": "f8ac5ea63d80a113f1b53b3ce814728cdf272874165d3a6ee2e5d1028fc913da",
+      "sha256": "f8ac5ea63d80a113f1b53b3ce814728cdf272874165d3a6ee2e5d1028fc913da",
+      "bytes": 933
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/peer/PeerException.java",
+      "path": "backend-java/src/main/java/org/creatordesk/peer/PeerException.java",
+      "source_sha256": "eddb4495a6ce7c5c8bef11a1784b5e2e49dd8e886b444aa66be2d794defc1ab9",
+      "sha256": "eddb4495a6ce7c5c8bef11a1784b5e2e49dd8e886b444aa66be2d794defc1ab9",
+      "bytes": 406
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/peer/PeerHttp.java",
+      "path": "backend-java/src/main/java/org/creatordesk/peer/PeerHttp.java",
+      "source_sha256": "8b84c0425869913948d9e12fa59cf86856a183594f3b7bc2dd5ef60f8180b08e",
+      "sha256": "8b84c0425869913948d9e12fa59cf86856a183594f3b7bc2dd5ef60f8180b08e",
+      "bytes": 11413
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/persistence/DeskStore.java",
+      "path": "backend-java/src/main/java/org/creatordesk/persistence/DeskStore.java",
+      "source_sha256": "e3d9af13759415d3d592ffffe3abd6a0b1e6ee526a9b91341a1e66cd01b8946c",
+      "sha256": "e3d9af13759415d3d592ffffe3abd6a0b1e6ee526a9b91341a1e66cd01b8946c",
+      "bytes": 11335
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/java/org/creatordesk/service/CreatorWorkflow.java",
+      "path": "backend-java/src/main/java/org/creatordesk/service/CreatorWorkflow.java",
+      "source_sha256": "ad4b572d31871774c50d5155e2b9cb6c7c825bd093d5e695fc14236c1c715b0d",
+      "sha256": "ad4b572d31871774c50d5155e2b9cb6c7c825bd093d5e695fc14236c1c715b0d",
+      "bytes": 34737
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/resources/application.yml",
+      "path": "backend-java/src/main/resources/application.yml",
+      "source_sha256": "7aeb079d154d8e1db62200f0fcfe23c9565728669393187928dc2299e212f112",
+      "sha256": "7aeb079d154d8e1db62200f0fcfe23c9565728669393187928dc2299e212f112",
+      "bytes": 1252
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/resources/db/migration/V1__creator_desk.sql",
+      "path": "backend-java/src/main/resources/db/migration/V1__creator_desk.sql",
+      "source_sha256": "e1f830fb8ada587ad78b54f05aa204f9bf37d5981a7123789477f74637daeb3e",
+      "sha256": "e1f830fb8ada587ad78b54f05aa204f9bf37d5981a7123789477f74637daeb3e",
+      "bytes": 756
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/resources/static/app.js",
+      "path": "backend-java/src/main/resources/static/app.js",
+      "source_sha256": "aaf59675d00890404fb6927171c963b808437e6125d5110934bd6df762d0ba47",
+      "sha256": "aaf59675d00890404fb6927171c963b808437e6125d5110934bd6df762d0ba47",
+      "bytes": 53411
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/resources/static/index.html",
+      "path": "backend-java/src/main/resources/static/index.html",
+      "source_sha256": "a6103b54ece0df5e82217a7ef9d9cbd23da9ca4d673bd291ca08705cb0d878b1",
+      "sha256": "a6103b54ece0df5e82217a7ef9d9cbd23da9ca4d673bd291ca08705cb0d878b1",
+      "bytes": 14322
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/main/resources/static/styles.css",
+      "path": "backend-java/src/main/resources/static/styles.css",
+      "source_sha256": "87a8b2c9ea54dd150e3b3fde100fd6c1c33d839ba59e1d65a9d0843cb0282efa",
+      "sha256": "87a8b2c9ea54dd150e3b3fde100fd6c1c33d839ba59e1d65a9d0843cb0282efa",
+      "bytes": 20480
+    },
+    {
+      "source": "project_CreatorDesk/backend-java/src/test/java/org/creatordesk/persistence/CreatorDeskPostgresIntegrationTest.java",
+      "path": "backend-java/src/test/java/org/creatordesk/persistence/CreatorDeskPostgresIntegrationTest.java",
+      "source_sha256": "d04e59be636c1c5510ed6204393205a7f629f246b5578e2de79d4febfddc992d",
+      "sha256": "d04e59be636c1c5510ed6204393205a7f629f246b5578e2de79d4febfddc992d",
+      "bytes": 26609
+    },
+    {
+      "source": "project_CreatorDesk/web/app.ts",
+      "path": "web/app.ts",
+      "source_sha256": "8d5702d0af616dfa9acb02eab9ae455d28fad67fa7625c00014ffe0ae671d2c2",
+      "sha256": "8d5702d0af616dfa9acb02eab9ae455d28fad67fa7625c00014ffe0ae671d2c2",
+      "bytes": 54066
+    },
+    {
+      "source": "project_CreatorDesk/github_public/README.md",
+      "path": "README.md",
+      "source_sha256": "a220170a783441dc38debef3f8a3b36c5634b300fce2f32d212d42e04a941d41",
+      "sha256": "a220170a783441dc38debef3f8a3b36c5634b300fce2f32d212d42e04a941d41",
+      "bytes": 3617
+    },
+    {
+      "source": "project_CreatorDesk/github_public/GPT_CONTEXT.md",
+      "path": "GPT_CONTEXT.md",
+      "source_sha256": "56b33b54dda48fee8466e923dfab36e4606243d690c9aed91bd98e04b656510e",
+      "sha256": "56b33b54dda48fee8466e923dfab36e4606243d690c9aed91bd98e04b656510e",
+      "bytes": 3425
+    },
+    {
+      "source": "project_CreatorDesk/github_public/RESULTS.md",
+      "path": "RESULTS.md",
+      "source_sha256": "a2a06aea8bdbf9b84404ecce3ccc1565b2b49fe09daafa0c577c2d79f6d3e5e1",
+      "sha256": "a2a06aea8bdbf9b84404ecce3ccc1565b2b49fe09daafa0c577c2d79f6d3e5e1",
+      "bytes": 3112
+    },
+    {
+      "source": "project_CreatorDesk/github_public/ARCHITECTURE.md",
+      "path": "ARCHITECTURE.md",
+      "source_sha256": "00cd8aff77072133c0e74ccc252aef28df37633ef7e6e5dd4a749cf9805c56d5",
+      "sha256": "00cd8aff77072133c0e74ccc252aef28df37633ef7e6e5dd4a749cf9805c56d5",
+      "bytes": 4618
+    },
+    {
+      "source": "generated:package.json",
+      "path": "package.json",
+      "source_sha256": null,
+      "sha256": "9c1598d5f44ba86fb2584bfd2c44d51b1639dfbe9035dc9a69b1da776088ba95",
+      "bytes": 292
+    }
+  ],
+  "file_count": 29,
+  "total_bytes": 283748,
+  "privacy_scan_findings": [],
+  "project_tests_executed": false,
+  "notes": [
+    "Source packaging and static inspection only.",
+    "Source paths are repository/workspace-relative provenance, not runtime dependencies."
+  ]
+}

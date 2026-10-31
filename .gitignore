@@ -1,0 +1,11 @@
+backend-java/target/
+node_modules/
+.env
+.env.*
+!.env.example
+private/
+state/
+*.log
+*.db
+*.sqlite*
+*.pid

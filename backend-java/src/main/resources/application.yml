@@ -1,0 +1,59 @@
+server:
+  address: 127.0.0.1
+  port: ${CREATOR_DESK_PORT:8814}
+  shutdown: graceful
+  max-http-request-header-size: 16KB
+  tomcat:
+    max-connections: 32
+    threads:
+      max: 32
+      min-spare: 2
+    connection-timeout: 5s
+spring:
+  application:
+    name: creator-desk-java
+  lifecycle:
+    timeout-per-shutdown-phase: 10s
+  datasource:
+    url: ${CREATOR_DESK_DB_URL:jdbc:postgresql://127.0.0.1:5432/creator_desk}
+    username: ${CREATOR_DESK_DB_USERNAME:creator_desk}
+    password: ${CREATOR_DESK_DB_PASSWORD:}
+    hikari:
+      maximum-pool-size: 12
+      minimum-idle: 1
+      connection-timeout: 3000
+      validation-timeout: 1000
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: false
+management:
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - metrics
+          - prometheus
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+      show-details: never
+  metrics:
+    tags:
+      application: creator-desk
+logging:
+  level:
+    root: INFO
+    org.springframework.security: WARN

@@ -1,0 +1,11 @@
+{
+  "name": "creatordesk-web-source",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:web": "tsc --target ES2022 --module ES2022 --lib ES2022,DOM --strict web/app.ts --outDir backend-java/src/main/resources/static"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3"
+  }
+}
