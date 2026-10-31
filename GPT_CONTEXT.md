@@ -2,6 +2,8 @@
 
 ## 任务与组件边界
 
+时间线：作者提供的主体开发时间为 2026.05—2026.08；性能补测为 2026.10，当前固定合成负载结果完成于 2026-10-30。简历中的开发区间不代表所有指标的测量日期。本文代码和测量结论未因本次时间线说明而改变。
+
 CreatorDesk C2 是创作流程工作台，保存 task、操作者提供的 source excerpt、不可变 draft version、review、generation/publication 状态和事件。身份取自配置的 Bearer token，不接受请求体指定 owner。
 
 | 组件 | CreatorDesk 的边界 |
